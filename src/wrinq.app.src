@@ -1,0 +1,20 @@
+{application, wrinq, [
+	{description, ""},
+	{vsn, "0.1.0"},
+	{modules, []},
+	{registered, [wrinq_sup]},
+	{applications, [
+		kernel,
+		stdlib,
+		sasl,
+		inets,
+		eredis,
+		uuid,
+		jiffy,
+		ranch,
+		cowboy,	
+		lager
+	]},
+	{mod, {wrinq_app, []}},
+	{env, []}
+]}.
