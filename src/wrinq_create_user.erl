@@ -30,7 +30,7 @@ create_user(Details,Req,State)->
     UB = erlang:list_to_binary(UUID),
     Data = jiffy:encode({[{n,User_Name},{p,Password},{id,UB}]}),
     Check = wrinq_check_user:check_user(User_Name,State),
-    P = jiffe:encode({[{UB,User_Name}]}),
+    P = jiffy:encode({[{UB,User_Name}]}),
     case Check of
 	true->
 	    eredis:q(State,["SET",UUID,User_Name]),
