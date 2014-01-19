@@ -32,7 +32,8 @@ login_user(Details,Req,State)->
     {ok, User} = eredis:q(State,["HGET",User_Name,<<"p">>]),
     try
 	{[{<<"n">>,User_Name},{<<"p">>,Password},{<<"id">>,Id}]} = jiffy:decode(User),
-	cowboy_req:reply(200,[],Id,Req)
+	P = jiffy:encode({[{Id,User_Name}]})
+	cowboy_req:reply(200,[],P,Req)
     catch
 	_:_-> cowboy_req:reply(404,Req)
     end.

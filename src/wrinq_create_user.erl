@@ -30,11 +30,12 @@ create_user(Details,Req,State)->
     UB = erlang:list_to_binary(UUID),
     Data = jiffy:encode({[{n,User_Name},{p,Password},{id,UB}]}),
     Check = wrinq_check_user:check_user(User_Name,State),
+    P = jiffe:encode({[{UB,User_Name}]})
     case Check of
 	true->
 	    eredis:q(State,["SET",UUID,User_Name]),
 	    eredis:q(State,["HSET",User_Name,<<"p">>,Data]),	    
-	    cowboy_req:reply(200,[],UB,Req);
+	    cowboy_req:reply(200,[],P,Req);
 	false-> cowboy_req:reply(404, Req)
     end.
  
