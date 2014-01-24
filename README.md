@@ -3,7 +3,7 @@ Backend of [wrinq.com](http://www.wrinq.com/)
 
 #### Building and running wrinq-core.
 
-1. Make sure that [redis](http://redis.io/) is installed and running. By default wrinq listens for redis on port 6739. If you are running it on a different port you can instruct wrinq-core to listen for it by using `eredis:start_link("ip address",port number)` [on tihs line](https://github.com/brickcap/wrinq-core/blob/master/src/wrinq_app.erl#L9). 
+1. Make sure that [redis](http://redis.io/) is installed and running. By default wrinq listens for redis on port 6739. If you are running it on a different port you can instruct wrinq-core to listen for it by using `eredis:start_link("ip address",port number)` [on this line](https://github.com/brickcap/wrinq-core/blob/master/src/wrinq_app.erl#L9). 
 
 2. Clone this repository.
 3. The repository includes executable scripts for fetching the depedencies, building the project and generating a release.
