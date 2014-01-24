@@ -1,7 +1,4 @@
-wrinq-core
-==========
-
-backend of wrinq.com
+Backend of [wrinq.com](http://www.wrinq.com/)
 
 
 #### Building and running wrinq-core.
